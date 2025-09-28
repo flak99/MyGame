@@ -1,36 +1,36 @@
-.container {
-  background-color: rgb(34, 34, 34);
+.base {
   display: flex;
-  width: 100%;
-  height: 100vh;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(39, 39, 39);
 }
-.main-area {
+
+.contianer {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  margin: 1rem;
+  justify-content: start;
+  align-items: center;
+  width: 40%;
   height: 80vh;
-  background-color: rgb(55, 54, 55);
+  color: whitesmoke;
+  font-family: "consolas";
+  background-color: rgb(107, 107, 107);
 }
 
-.mainEQ {
+.element {
   display: flex;
-  width: 90%;
-  height: 10vh;
-  margin-top: 1rem;
-  justify-content: space-around;
-  margin-bottom: 8rem;
+  background-color: rgb(82, 82, 89);
+  width: 50px;
+  height: 50px;
+  margin: 1rem;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
 }
-
-.mainEQ td {
-  border: solid 2px black;
-  width: 100px;
-  height: 100px;
-  text-align: center;
-  vertical-align: middle;
-}
-
-.mainEQ tr {
-  background-color: rgba(0, 255, 255, 0.143);
+.element:hover {
+  cursor: grab;
 }
