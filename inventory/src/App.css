@@ -31,18 +31,6 @@
   vertical-align: middle;
 }
 
-.inventory {
-  display: flex;
-  width: 90%;
-  height: 10vh;
-  margin-top: 1rem;
-  justify-content: space-around;
-}
-
-.inventory td {
-  border: solid 2px black;
-  width: 80px;
-  height: 80px;
-  text-align: center;
-  vertical-align: middle;
+.mainEQ tr {
+  background-color: rgba(0, 255, 255, 0.143);
 }
