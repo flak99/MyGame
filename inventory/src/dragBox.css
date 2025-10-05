@@ -1,0 +1,50 @@
+body {
+  background-color: rgb(64, 64, 64);
+}
+
+.klasa1 {
+  display: flex;
+  background-color: rgb(112, 105, 105);
+  width: 100px;
+  height: 100px;
+  color: white;
+  text-align: center;
+  align-items: center;
+  cursor: grab;
+  margin: 1rem;
+}
+
+.klasa2 {
+  display: flex;
+  width: 0px;
+}
+
+.klasa3 {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+  align-items: center;
+  width: 50%;
+  height: 20vh;
+  background-color: rgb(146, 144, 144);
+}
+
+.klasa4 {
+  display: flex;
+  margin: 1rem;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 20vh;
+  background-color: rgb(149, 233, 169);
+}
+
+.klasa5 {
+  display: flex;
+  margin: 1rem;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 20vh;
+  background-color: rgb(233, 162, 149);
+}
