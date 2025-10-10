@@ -1,0 +1,5 @@
+[
+  { "id": 1, "name": "Miecz", "picture": "./sword.png" },
+  { "id": 2, "name": "Hełm", "picture": "./sword.png" },
+  { "id": 3, "name": "Tarcza", "picture": "./sword.png" }
+]

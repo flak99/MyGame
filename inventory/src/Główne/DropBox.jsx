@@ -1,10 +1,11 @@
 import { useDrop } from "react-dnd";
 import "./DragBox.css";
 import { useState } from "react";
+import { DraggableItems } from "./DragItems";
 
 export function DropBox() {
   const [item, setItem] = useState([]);
-  const [{ canDrop, isOver }, drop] = useDrop(() => ({
+  const [{ isOver }, drop] = useDrop(() => ({
     accept: "BOX",
     drop: (item) => {
       // To jest włąsiwość, któa m ow co ma sie estac
@@ -18,19 +19,19 @@ export function DropBox() {
     }),
   }));
 
+  function ShowDragedItems() {
+    return item.map((it, index) => (
+      <div key={index} className="klasa1">
+        {it.name}
+      </div>
+    ));
+  }
+
+  // ***************************************
   return (
     <div ref={drop} className={isOver ? "klasa4" : "klasa3"}>
       {canDrop ? "Można dodac" : ""}
-      {item.map((it, index) => (
-        <div key={index} className="klasa1">
-          Przeciagnij mnie{" "}
-        </div>
-      ))}
+      {ShowDragedItems()}
     </div>
   );
-}
-{
-  /* <div key={index} className="klasa1">
-  Przeciagnij mnie{" "}
-</div>; */
 }
