@@ -7,6 +7,8 @@ import { itmeExists } from "./Helpers/CheckIfExist";
 import { Player } from "./Player";
 
 export function UserInventory() {
+  const mieczIMG = "./miecz.jpg";
+
   const [inventrySlots, setIventroySlots] = useState([
     { id: 1, name: "Miecz", atak: 50, obrona: 0, magia: 30 },
     { id: 2, name: "Hełm", atak: 0, obrona: 60, magia: 90 },
