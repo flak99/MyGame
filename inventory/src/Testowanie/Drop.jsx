@@ -4,7 +4,7 @@ export function DropScheme({ children, className = "", onDropItem }) {
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "Item",
     drop: (draggingItem) => {
-      console.log("Drop " + draggingItem.name);
+      // console.log("Drop " + draggingItem.name);
       if (onDropItem) onDropItem(draggingItem);
     },
     collect: (monitor) => ({
