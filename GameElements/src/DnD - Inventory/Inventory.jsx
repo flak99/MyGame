@@ -4,21 +4,23 @@ import "./Styles/DropView.css";
 import { useState } from "react";
 import { DragScheme } from "./Drag";
 import { itmeExists } from "./Helpers/CheckIfExist";
+import { Player } from "./Player";
 
 export function UserInventory() {
   const [inventrySlots, setIventroySlots] = useState([
-    { id: 1, name: "Miecz" },
-    { id: 2, name: "Hełm" },
-    { id: 3, name: "Tarcza" },
+    { id: 1, name: "Miecz", atak: 50, obrona: 0, magia: 30 },
+    { id: 2, name: "Hełm", atak: 0, obrona: 60, magia: 90 },
+    { id: 3, name: "Tarcza", atak: 20, obrona: 40, magia: 0 },
     { id: 4, name: null },
     { id: 5, name: null },
   ]);
 
   const [userEQ, setUserEQ] = useState([
-    { id: 11, name: null },
-    { id: 22, name: null },
-    { id: 33, name: null },
+    { id: 11, name: null, atak: 0, obrona: 0, magia: 0 },
+    { id: 22, name: null, atak: 0, obrona: 0, magia: 0 },
+    { id: 33, name: null, atak: 0, obrona: 0, magia: 0 },
   ]);
+  const [stats, setStats] = useState({ atak: 30, obrona: 20, magia: 0 });
 
   function renderInventory() {
     return inventrySlots.map((slot) => (
@@ -29,9 +31,7 @@ export function UserInventory() {
         data={{ slotID: slot.id }}
       >
         {slot.name ? (
-          <DragScheme item={{ id: slot.id, name: slot.name }}>
-            {slot.name}
-          </DragScheme>
+          <DragScheme item={{ ...slot }}>{slot.name}</DragScheme>
         ) : (
           <div></div>
         )}
@@ -42,11 +42,15 @@ export function UserInventory() {
     console.log(" #### Drop to Inventroy", item.name);
     //usuwanie z UserEQ
     setUserEQ((prev) =>
-      prev.map((slot) => (slot.id === item.id ? { ...slot, name: null } : slot))
+      prev.map((slot) =>
+        slot.id === item.id
+          ? { ...slot, name: null, atak: 0, obrona: 0, magia: 0 }
+          : slot
+      )
     );
     //dodawanie do inventory
     setIventroySlots((prev) => {
-      if (itmeExists(prev, item.id)) return prev;
+      if (itmeExists(prev, item.name)) return prev;
 
       const newInv = [...prev];
       const emptyInventoryIndex = newInv.findIndex((slot) => !slot.name);
@@ -55,7 +59,7 @@ export function UserInventory() {
         // tylko jeśli jest wolne miejsce, zapis ten jest poprzez to (-1)
         newInv[emptyInventoryIndex] = {
           ...newInv[emptyInventoryIndex],
-          name: item.name,
+          ...item,
         };
       } else {
         console.warn("Brak wolnego miejsca w User EQ!");
@@ -69,13 +73,17 @@ export function UserInventory() {
 
     // Usuwanie
     setIventroySlots((prev) =>
-      prev.map((slot) => (slot.id === item.id ? { ...slot, name: null } : slot))
+      prev.map((slot) =>
+        slot.id === item.id
+          ? { ...slot, name: null, atak: 0, obrona: 0, magia: 0 }
+          : slot
+      )
     );
 
     // Aktualizacja UserEQ (dodawanie do UserEQ)
     setUserEQ((prev) => {
       // sprawdzamnie czy (e) juz istnieje
-      if (itmeExists(prev, item.id)) return prev;
+      if (itmeExists(prev, item.name)) return prev;
 
       const newEQ = [...prev];
       const emptyIndex = newEQ.findIndex((slot) => !slot.name);
@@ -84,7 +92,7 @@ export function UserInventory() {
         // tylko jeśli jest wolne miejsce, zapis ten jest poprzez to (-1)
         newEQ[emptyIndex] = {
           ...newEQ[emptyIndex],
-          name: item.name,
+          ...item,
         };
       } else {
         console.warn("Brak wolnego miejsca w User EQ!");
@@ -101,10 +109,7 @@ export function UserInventory() {
         onDropItem={handleDropToUserEQ}
       >
         {slot.name ? (
-          <DragScheme
-            className="inv-slot-view"
-            item={{ id: slot.id, name: slot.name }}
-          >
+          <DragScheme className="inv-slot-view" item={{ ...slot }}>
             {slot.name}
           </DragScheme>
         ) : (
@@ -116,12 +121,9 @@ export function UserInventory() {
 
   return (
     <div className="container">
-      <div className="siatka">
-        <h1>Inventory</h1>
-        {renderInventory()}
-        <h1>User EQ</h1>
-        {renderUserEQ()}
-      </div>
+      <Player stats={stats} activeItems={userEQ}></Player>
+      <div className="siatka">{renderUserEQ()}</div>
+      <div className="siatka">{renderInventory()}</div>
     </div>
   );
 }
