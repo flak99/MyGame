@@ -3,6 +3,7 @@ import "./Styles/UserInvetory.css";
 import "./Styles/DropView.css";
 import { useState } from "react";
 import { DragScheme } from "./Drag";
+import { itmeExists } from "./Helpers/CheckIfExist";
 
 export function UserInventory() {
   const [inventrySlots, setIventroySlots] = useState([
@@ -45,6 +46,8 @@ export function UserInventory() {
     );
     //dodawanie do inventory
     setIventroySlots((prev) => {
+      if (itmeExists(prev, item.id)) return prev;
+
       const newInv = [...prev];
       const emptyInventoryIndex = newInv.findIndex((slot) => !slot.name);
 
@@ -71,6 +74,9 @@ export function UserInventory() {
 
     // Aktualizacja UserEQ (dodawanie do UserEQ)
     setUserEQ((prev) => {
+      // sprawdzamnie czy (e) juz istnieje
+      if (itmeExists(prev, item.id)) return prev;
+
       const newEQ = [...prev];
       const emptyIndex = newEQ.findIndex((slot) => !slot.name);
 
