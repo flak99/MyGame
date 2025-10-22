@@ -7,7 +7,11 @@ import { itmeExists } from "./Helpers/CheckIfExist";
 import { Player } from "./Player";
 
 export function UserInventory() {
-  const mieczIMG = "./miecz.jpg";
+  const [userEQ, setUserEQ] = useState([
+    { id: 11, name: null, atak: 0, obrona: 0, magia: 0 },
+    { id: 22, name: null, atak: 0, obrona: 0, magia: 0 },
+    { id: 33, name: null, atak: 0, obrona: 0, magia: 0 },
+  ]);
 
   const [inventrySlots, setIventroySlots] = useState([
     { id: 1, name: "Miecz", atak: 50, obrona: 0, magia: 30 },
@@ -15,12 +19,6 @@ export function UserInventory() {
     { id: 3, name: "Tarcza", atak: 20, obrona: 40, magia: 0 },
     { id: 4, name: null },
     { id: 5, name: null },
-  ]);
-
-  const [userEQ, setUserEQ] = useState([
-    { id: 11, name: null, atak: 0, obrona: 0, magia: 0 },
-    { id: 22, name: null, atak: 0, obrona: 0, magia: 0 },
-    { id: 33, name: null, atak: 0, obrona: 0, magia: 0 },
   ]);
   const [stats, setStats] = useState({ atak: 30, obrona: 20, magia: 0 });
 
@@ -122,7 +120,7 @@ export function UserInventory() {
   }
 
   return (
-    <div className="container">
+    <div className="container-inv">
       <Player stats={stats} activeItems={userEQ}></Player>
       <div className="siatka">{renderUserEQ()}</div>
       <div className="siatka">{renderInventory()}</div>
