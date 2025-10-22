@@ -4,6 +4,9 @@ import { DropScheme } from "../DnD - Inventory/Drop";
 import { DragScheme } from "../DnD - Inventory/Drag";
 
 export function ShopEQ({ inventory, setInventory }) {
+  alert(
+    "Popraw dzialanie duplication bug oraz usuwanie z SHOP/USEREQ/Invenory ;)"
+  );
   const [shopSlots, setShopSlots] = useState([
     { id: 1, name: null },
     { id: 2, name: null },
