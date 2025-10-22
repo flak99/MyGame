@@ -1,0 +1,16 @@
+.map-container {
+  display: flex;
+  justify-content: center; /* wyśrodkowanie canvas poziomo */
+  align-items: center; /* wyśrodkowanie canvas pionowo */
+  position: absolute;
+  width: 80%;
+  height: 100vh;
+  background-color: cadetblue;
+}
+
+.map-container canvas {
+  width: 100%; /* zajmuje całą szerokość kontenera */
+  height: auto; /* wysokość dopasowuje się proporcjonalnie, zachowując 4:3 */
+  max-height: 100%; /* nie wychodzi poza wysokość kontenera */
+  image-rendering: pixelated; /* żeby elementy były ostre */
+}
