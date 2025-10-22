@@ -7,11 +7,22 @@ import { ShopEQ } from "./Sklep/ShopEQ";
 import { useState } from "react";
 
 export function App() {
+  const [inventrySlots, setIventroySlots] = useState([
+    { id: 1, name: "Miecz", atak: 50, obrona: 0, magia: 30 },
+    { id: 2, name: "Hełm", atak: 0, obrona: 60, magia: 90 },
+    { id: 3, name: "Tarcza", atak: 20, obrona: 40, magia: 0 },
+    { id: 4, name: null },
+    { id: 5, name: null },
+  ]);
+
   return (
     <>
       <DndProvider backend={HTML5Backend}>
-        <ShopEQ />
-        <UserInventory />
+        <ShopEQ inventory={inventrySlots} setInventory={setIventroySlots} />
+        <UserInventory
+          inventory={inventrySlots}
+          setInventory={setIventroySlots}
+        />
       </DndProvider>
     </>
   );
