@@ -5,7 +5,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import { UserInventory } from "./DnD - Inventory/Inventory";
 import { ShopEQ } from "./Sklep/ShopEQ";
 import { useState } from "react";
-import { GameBoard } from "./assets/GameBoard/GameBoard";
+import { GameBoard } from "./Canvas/GameBoard";
 
 export function App() {
   const [inventrySlots, setIventroySlots] = useState([

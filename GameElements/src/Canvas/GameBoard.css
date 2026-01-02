@@ -1,0 +1,18 @@
+canvas {
+  width: 80vw; /* ZAWSZE 80% szerokości okna */
+  height: auto; /* wysokość liczona z proporcji */
+  aspect-ratio: 16 / 9; /* BLOKADA proporcji */
+  max-width: 1920px;
+  max-height: 1080px;
+  background-color: rgb(51, 49, 57);
+  image-rendering: pixelated;
+  display: block;
+}
+
+.game-wrapper {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  width: 80%;
+  height: 100vh;
+}

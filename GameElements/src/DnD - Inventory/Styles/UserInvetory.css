@@ -1,4 +1,8 @@
 .container-inv {
+  position: absolute; /* nakładanie na canvas */
+  top: 0; /* od góry ekranu */
+  right: 0; /* od prawej strony */
+  z-index: 10; /* nad canvas */
   display: flex;
   flex-direction: column;
   margin-left: auto;
