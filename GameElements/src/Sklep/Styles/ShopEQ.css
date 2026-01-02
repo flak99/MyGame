@@ -1,0 +1,52 @@
+.container-shop {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  z-index: 10000;
+  width: 50%;
+  height: 30vh;
+  background-color: rgb(42, 45, 44);
+  margin: 6rem;
+}
+.siatka-shop {
+  display: flex;
+  width: 95%;
+  height: 70%;
+  background-color: rgb(42, 45, 44);
+}
+.sell-btn {
+  margin-top: 0.5rem;
+  width: 20%;
+  height: 4vh;
+  background-color: rgb(57, 60, 60);
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: whitesmoke;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.test {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  background-color: red;
+  margin: 0.5rem;
+}
+.inv-slot-view {
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(82, 78, 78);
+  border: solid 3px rgb(37, 35, 35);
+  width: 40px;
+  height: 40px;
+  margin: 0.3rem;
+  cursor: grab;
+  font-size: 0.7rem;
+  position: relative;
+}

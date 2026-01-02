@@ -1,0 +1,14 @@
+.inv-slot-view {
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(82, 78, 78);
+  border: solid 3px rgb(37, 35, 35);
+  width: 40px;
+  height: 40px;
+  margin: 0.3rem;
+  cursor: grab;
+  font-size: 0.7rem;
+  position: relative;
+}

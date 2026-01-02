@@ -1,0 +1,57 @@
+.container-inv {
+  position: absolute; /* nakładanie na canvas */
+  top: 0; /* od góry ekranu */
+  right: 0; /* od prawej strony */
+  z-index: 10; /* nad canvas */
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  width: 20%;
+  height: 100vh;
+  background-color: rgb(42, 45, 44);
+}
+.siatka {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  background-color: rgb(57, 60, 60);
+}
+
+.player-stats {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(69, 73, 72);
+  width: 100%;
+  height: 20vh;
+}
+
+.player-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  color: greenyellow;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+  margin-left: 1rem;
+}
+
+.user-image {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+  -webkit-user-drag: none;
+  pointer-events: none;
+  user-select: none;
+}
+
+h1 {
+  color: white;
+  margin: 1rem;
+  font-family: consolas;
+  font-weight: 300;
+  font-style: italic;
+}
